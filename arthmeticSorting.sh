@@ -8,14 +8,7 @@ echo "Enter the second input"
 read b
 echo "Enter the third input"
 read c
-#compute=`echo "scale=2 ; $a+$b*$c" | bc -l`
-#echo $compute
-#compute1=`echo "scale=2 ; $a*$b+$c" | bc -l`
-#echo $compute1
-#compute2=`echo "scale=2 ; $c+$a/$b" | bc -l`
-#echo $compute2
-#compute3=1`echo "scale=2 ; $a%$b+$c" | bc -l`
-#echo $compute3
+#All the arithmetic operation store in a dictionary
 declare -A arithmeticDictionary
 compute=`echo "scale=2 ; $a+$b*$c" | bc -l`
 arithmeticDictionary[1]="$compute"
@@ -25,7 +18,11 @@ compute2=`echo "scale=2 ; $a%$b+$c" | bc -l`
 arithmeticDictionary[3]="$compute2"
 compute3=`echo "scale=2 ; $a%$b+$c" | bc -l`
 arithmeticDictionary[4]="$compute3"
-
+for value in ${!arithmeticDictionary[@]}
+do
+	arithmeticArray[$value]="${arithmeticDictionary[$value]}"
+done
+echo ${arithmeticArray[@]}
  
 
 

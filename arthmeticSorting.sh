@@ -1,4 +1,4 @@
-#!/bin/bash -x
+1#!/bin/bash -x
 #print the massage
 echo "Welcome the Arithmetic Operation"
 #Display the three input
@@ -25,17 +25,17 @@ done
 echo ${arithmeticArray[@]}
 for((count=1;count<=4;count++))
 do
-	for((count1=($count+1);count1<4;count1++))
+	for((count1=($count+1);count1<=4;count1++))
 	do
-		if((`echo "${arithmeticArray[$count]}<${arithmeticArray[$count1]}" | bc -q` == 1)) 
+		if((`echo "${arithmeticArray[$count]}<${arithmeticArray[$count1]}" | bc -q`==l)) 
 		then
-			temp="$arithmaticArray[$count]"
+			temp="${arithmeticArray[$count]}"
 			arithmeticArray[$count]="${arithmeticArray[$count1]}"
 			arithmeticArray[$count1]=$temp
  		fi
 	done
 done
-echo "sortedArray in decending order:"${arithmeticArray[@]}
+echo "sortedArray in ascending order:"${arithmeticArray[@]}
 
 
 
